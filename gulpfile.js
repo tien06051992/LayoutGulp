@@ -4,8 +4,8 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var watch = require('gulp-watch');
 var changed = require('gulp-changed');
-
-
+var less = require('gulp-less');
+var path = require('path');
 var browserSync = require('browser-sync');
 
 gulp.task('browser-sync', function () {
@@ -13,7 +13,8 @@ gulp.task('browser-sync', function () {
       'app/*.html',
       'app/css/*.css',
       'app/img/*.png',
-      'app/js/*.js'
+      'app/js/*.js',
+      'app/less/*.less'
    ];
 
    browserSync.init(files, {
@@ -22,6 +23,19 @@ gulp.task('browser-sync', function () {
       }
    });
 });
+
+gulp.task('less', function () {
+  return gulp.src('app/less/*.less')
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(gulp.dest('app/css'))
+    .pipe(connect.reload());
+});
+
+gulp.task('watch', function() {
+    gulp.watch('app/less/*.less', ['less']);
+})
 
 
 // gulp.task('clean', function() {
@@ -32,7 +46,7 @@ gulp.task('browser-sync', function () {
 // });
 
 gulp.task('default', ['browser-sync']
-// 	, function() {
+//    , function() {
 //     gulp.watch('app/js/**/*.js', function(event) {
 //         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 //         gulp.src('app/js/**/*.js')
