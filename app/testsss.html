@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SSS Testing</title>
+</head>
+
+<body>
+    <form accept-charset="UTF-8" action="http://woof.cognitocrm.com/subscriber_lists/13/subscribe" method="post" target="_blank" name="testsss" style="background:#4bae59;text-align:center">
+    	<h2 style="padding:10px;">Đăng ký thông tin</h2>
+    	<h4 id="errormess" style="color:#ff0000"></h4>
+        <div style="margin:0;padding:0;display:inline">
+            <input name="utf8" type="hidden" value="&#x2713;" />
+        </div>
+        <div style="margin:10px;padding:10px;">
+        <input id="subscription_customer_attributes_full_name" name="subscription[customer_attributes][full_name]" type="text" placeholder="Họ Tên"></div>
+        <div style="margin:10px;padding:10px;">
+        <label for="subscription_customer_attributes_gender">Giới tính</label>
+        <select id="subscription_customer_attributes_gender" name="subscription[customer_attributes][gender]">
+            <option value="male">Nam</option>
+            <option value="female">Nữ</option>
+        </select>
+        </div>
+        <div style="margin:10px;padding:10px;">
+        <input id="subscription_customer_attributes_birthday" name="subscription[customer_attributes][birthday]" placeholder="Sinh nhật dd-mm-yyyy" type="text" />
+        </div>
+        <div style="margin:10px;padding:10px;">
+        <input id="subscription_customer_attributes_email" name="subscription[customer_attributes][email]" type="email" placeholder="Email"/>
+        </div>
+        <div style="margin:10px;padding:10px;">
+        <input id="subscription_customer_attributes_phone" name="subscription[customer_attributes][phone]" type="tel" placeholder="Số điện thoại"/>
+        </div>
+        <div style="margin:10px;padding:10px;">
+        <input id="subscription_customer_source" name="subscription[customer_source]" type="hidden" value="" />
+        </div>
+        <div style="margin:10px;padding:10px;">
+        <input type="submit" value="Gửi thông tin" />
+        </div>
+    </form>
+
+
+    <script src="/app/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="//cdn.cognitocrm.com/js/customer_source.min.js"></script>
+    <script src="/app/js/validate.min.js"></script>
+    <script src="/app/js/testsss.js"></script>
+</body>
+
+</html>

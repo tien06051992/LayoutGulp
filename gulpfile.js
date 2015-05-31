@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglifyjs');
 var concat = require('gulp-concat');
 var watch = require('gulp-watch');
 var changed = require('gulp-changed');
@@ -22,6 +22,14 @@ gulp.task('browser-sync', function () {
          baseDir: './'
       }
    });
+});
+
+gulp.task('uglify', function() {
+  gulp.src('traxanhjs/*.js')
+    .pipe(uglify('traxanh.min.js', {
+      mangle: false
+    }))
+    .pipe(gulp.dest('traxanhminjs'))
 });
 
 gulp.task('less', function () {
@@ -62,3 +70,5 @@ gulp.task('default', ['browser-sync']
 //     });
 // }
 );
+
+
