@@ -1,2 +1,4 @@
-# LayoutRetail
-Website Retail
+# Layout Gulp
+
+Installation:
+- npm install gulp
