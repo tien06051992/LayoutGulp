@@ -32,19 +32,15 @@ gulp.task('browser-sync', function () {
     .pipe(gulp.dest('traxanhminjs'))
 });*/
 
-gulp.task('less', function () {
-  return gulp.src('app/less/*.less')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
-    }))
-    .pipe(gulp.dest('app/css'))
-    .pipe(connect.reload());
+gulp.task('less', function() {
+  gulp.src('app/less/*.less')
+    .pipe(less())
+    .pipe(gulp.dest('styles'))
+    .pipe(browserSync.stream({match: "**/*.css"}));
+}).task('default', ['browser-sync', 'less'], function() {
+   gulp.watch('less/*.less', ['less']);
+}).task('prod', ['less', 'libs-prod', 'assets'], function() {
 });
-
-gulp.task('watch', function() {
-    gulp.watch('app/less/*.less', ['less']);
-})
-
 
 // gulp.task('clean', function() {
 //     return gulp.src('build', {
