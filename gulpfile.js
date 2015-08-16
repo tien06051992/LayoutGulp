@@ -24,13 +24,13 @@ gulp.task('browser-sync', function () {
    });
 });
 
-gulp.task('uglify', function() {
+/*gulp.task('uglify', function() {
   gulp.src('traxanhjs/*.js')
     .pipe(uglify('traxanh.min.js', {
       mangle: false
     }))
     .pipe(gulp.dest('traxanhminjs'))
-});
+});*/
 
 gulp.task('less', function () {
   return gulp.src('app/less/*.less')
